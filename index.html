@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Voting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Vote for Your Favorite Social Media Platform</h1>
+
+        <form method="POST" action="/">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label>Select your favorite platform:</label><br>
+            {% for option in options.keys() %}
+            <input type="radio" id="{{ option }}" name="option" value="{{ option }}" required>
+            <label for="{{ option }}">{{ option }}</label><br>
+            {% endfor %}
+            <br>
+            <input type="submit" value="Vote">
+        </form>
+    </div>
+</body>
+
+</html>
